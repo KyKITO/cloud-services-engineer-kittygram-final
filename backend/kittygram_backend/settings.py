@@ -1,14 +1,12 @@
 import os
 from pathlib import Path
+from dotenv import  load_dotenv
 
-from django.core.management.utils import get_random_secret_key
-from dotenv import find_dotenv, load_dotenv
-
-load_dotenv(find_dotenv())
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
+SECRET_KEY = os.getenv('TOKEN', 'django-insecure-123')
 
 DEBUG = os.getenv('DEBUG', '').lower() == 'true'
 
