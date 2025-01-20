@@ -143,7 +143,7 @@ jobs:
         with:
           context: ./nginx/
           push: true
-          tags: ${{ secrets.DOCKER_NICKNAME }}/kittygram_final_gateway:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/kittygram_final_gateway:latest
 
   deploy:
   
