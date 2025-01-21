@@ -15,7 +15,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    image: kykito/kittygram_fina_backend:latest
+    image: kykito/kittygram_final_backend:latest
     env_file: .env
     restart: always
     depends_on:
