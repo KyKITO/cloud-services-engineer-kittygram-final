@@ -1,16 +1,17 @@
 import os
 from pathlib import Path
-from dotenv import  load_dotenv
 
-load_dotenv()
+from django.core.management.utils import get_random_secret_key
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('TOKEN', 'django-insecure')
+SECRET_KEY = os.environ.get("SECRET_KEY", default=get_random_secret_key())
 
-DEBUG = os.getenv('DEBUG', '').lower() == 'true'
+DEBUG = os.environ.get("DEBUG", "false") in {"true", "True", "1"}
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1 localhost').split(' ')
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,11 +59,11 @@ WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv('POSTGRES_DB', 'django'),
         'USER': os.getenv('POSTGRES_USER', 'django'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'django'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', 5432)
     }
 }
