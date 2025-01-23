@@ -41,8 +41,8 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='achievementcat',
-            name='cat',
+            model_name='AchievementCat',
+            name='Cat',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='cats.cat'),
         ),
     ]
