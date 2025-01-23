@@ -5,4 +5,4 @@ DB_HOST=db
 DB_PORT=5432
 SECRET_KEY=super_secret_key
 DEBUG=false
-ALLOWED_HOSTS=localhost, 127.0.0.1
+ALLOWED_HOSTS=localhost
