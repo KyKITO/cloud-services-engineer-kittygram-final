@@ -45,4 +45,8 @@ class Migration(migrations.Migration):
             name='Cat',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='cats.cat'),
         ),
+        # migrations.RunSQL(
+        #     sql=""
+
+        # )
     ]
