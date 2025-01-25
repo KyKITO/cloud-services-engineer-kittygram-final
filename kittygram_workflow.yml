@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.8" ,"3.9", "3.10"]
     services:
       postgres:
         image: postgres:13
@@ -191,6 +191,10 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: Completed!!!
+        message: | 
+          Completed!!!
+          Created by: ${{ github.actor }}
+          Commit: ${{ github.event.commits[0].message }}
+          Link: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
         
       
