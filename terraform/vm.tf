@@ -30,7 +30,7 @@ resource "yandex_compute_instance" "vm" {
 
   metadata = {
     serial-port-enable = "1"
-    user-data = templatefile("${path.module}/init/vm-install.yml",
+    user-data = templatefile("${path.module}/init/vm-install.yaml",
       {
         SSH_KEY = var.ssh_key
     })
