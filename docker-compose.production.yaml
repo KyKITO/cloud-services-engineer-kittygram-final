@@ -8,6 +8,7 @@ volumes:
 services:
 
   postgres:
+    container_name: postgres
     image: postgres:13
     env_file: .env
     restart: always
