@@ -163,7 +163,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           mkdir -p /home/user/kittygram
           cat <<EOF > /home/user/kittygram/.env
@@ -179,7 +179,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "docker-compose.production.yaml"
         target: "/home/${{ secrets.USER }}/kittygram"
         
@@ -188,7 +188,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd kittygram
           sudo docker compose -f docker-compose.production.yaml pull
