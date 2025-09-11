@@ -195,6 +195,8 @@ jobs:
           sudo docker-compose -f docker-compose.production.yaml pull
           sudo docker-compose -f docker-compose.production.yaml down
           sudo docker-compose -f docker-compose.production.yaml up -d
+          echo "Waiting 30 sec for the PostgreSQL container to become available..."
+          sleep 30
           sudo docker-compose -f docker-compose.production.yaml exec backend python manage.py migrate
           sudo docker-compose -f docker-compose.production.yaml exec backend python manage.py collectstatic
           sudo docker-compose -f docker-compose.production.yaml exec backend cp -r /app/collected_static/. /backend_static/static/
